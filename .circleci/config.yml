@@ -25,7 +25,7 @@ jobs:
           command: ./up upgrade
       - run:
           name: Deploy staging via up
-          command: ./up deploy staging
+          command: ./up deploy production
 
 workflows:
   version: 2
