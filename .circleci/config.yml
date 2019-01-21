@@ -22,7 +22,7 @@ jobs:
           command: curl -sf https://up.apex.sh/install | BINDIR=. sh
       - run:
           name: Upgrade Up
-          command: up upgrade
+          command: ./up upgrade
       - run:
           name: Deploy staging via up
           command: ./up deploy staging
