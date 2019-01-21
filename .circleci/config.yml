@@ -19,13 +19,15 @@ jobs:
           command: aws sts get-caller-identity
       - run:
           name: Install up
-          command: curl -sf https://up.apex.sh/install | BINDIR=. sh
+          command: |
+            sudo chown -R $(whoami) /usr/local/bin
+            # Install Up
+            curl -sf https://up.apex.sh/install | sh
+            # Upgrade Up
+            up upgrade
       - run:
-          name: Upgrade Up
-          command: ./up upgrade
-      - run:
-          name: Deploy staging via up
-          command: ./up deploy production
+          name: Deploy via Up
+          command: up deploy production
 
 workflows:
   version: 2
